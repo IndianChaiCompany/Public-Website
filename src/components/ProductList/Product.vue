@@ -6,7 +6,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
-import { IProduct } from "../../../Common/IProducts";
+import { IProduct } from "../../../../Common/IProducts";
 
 @Component
 export default class Product extends Vue {
