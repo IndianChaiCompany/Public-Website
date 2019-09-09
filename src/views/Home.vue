@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>INDIAN CHAI COMPANY</h1>
     <ProductList></ProductList>
   </div>
 </template>

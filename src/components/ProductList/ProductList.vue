@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="myGrid">
     <div v-for="(product, key) in ProductList" :key="key">
       <Product :data="product"></Product>
     </div>
@@ -23,13 +23,12 @@ export default class ProductList extends Vue {
 
   getAllProducts() {
     let db = firebase.firestore();
-    db.collection("Product")
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(product => {
-          this.ProductList.push(product.data() as IProduct);
-        });
+    db.collection("Product").onSnapshot(snapshot => {
+      this.ProductList = [];
+      snapshot.forEach(product => {
+        this.ProductList.push(product.data() as IProduct);
       });
+    });
   }
 
   mounted() {
@@ -38,4 +37,11 @@ export default class ProductList extends Vue {
 }
 </script>
 
-<style></style>
+<style>
+.myGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+</style>
