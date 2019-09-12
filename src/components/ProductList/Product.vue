@@ -4,13 +4,15 @@
       <img
         :src="data.productIconURL"
         alt="data.productIconURL"
-        srcset=""
+        srcset
         v-if="data.productIconURL"
       />
     </div>
-    <h1>{{ data.name }}</h1>
-    <h4>{{ data.summary }}</h4>
-    <a href="#"><h1 class="price">Rs.499</h1></a>
+    <div class="details">
+      <p>{{ data.name }}</p>
+      <p>{{ data.summary }}</p>
+      <div class="callToAction">Get Now</div>
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
-import { IProduct } from "../../../../Common/IProducts";
+import { IProduct } from "../../../Common/IProducts";
 
 @Component
 export default class Product extends Vue {
@@ -28,23 +30,34 @@ export default class Product extends Vue {
 
 <style lang="scss">
 .box {
-  border: solid 5px black;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 20px;
-  /* height: 250px; */
   height: 100%;
-}
-.price {
-  margin-top: 40px;
-  background: black;
-  color: white;
+  align-items: center;
+
+  .details {
+    padding: 0 20px;
+    .callToAction {
+      padding: 20px;
+      border: black 3px solid;
+      color: white;
+      background: black;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: black;
+        background: white;
+      }
+    }
+  }
 }
 .futureImage {
   margin: 0;
   display: inline-block;
   background: gray;
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   img {
     width: 100%;
     height: 100%;
