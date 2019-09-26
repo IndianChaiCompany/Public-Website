@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box" v-if="isProductLoaded">
     <div class="futureImage">
       <img
         :src="data.productIconURL"
@@ -14,6 +14,7 @@
       <div class="callToAction">Get Now</div>
     </div>
   </div>
+  <div class="loading" v-else>Loading items from inventory</div>
 </template>
 
 <script lang="ts">
@@ -25,6 +26,12 @@ import { IProduct } from "../../../Common/IProducts";
 @Component
 export default class Product extends Vue {
   @Prop({ type: Object as () => IProduct }) readonly data!: IProduct;
+  get isProductLoaded() {
+    if (this.data && this.data.name) {
+      return true;
+    }
+    return false;
+  }
 }
 </script>
 
@@ -51,23 +58,31 @@ export default class Product extends Vue {
       }
     }
   }
-}
-.futureImage {
-  margin: 0;
-  display: inline-block;
-  background: gray;
-  height: 100%;
-  width: 100%;
-  img {
-    width: 100%;
+  .futureImage {
+    margin: 0;
+    display: inline-block;
+    background: gray;
     height: 100%;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  h1 {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
 }
-h1 {
-  margin: 0;
-}
-a {
-  text-decoration: none;
-  color: white;
+
+.loading {
+  display: grid;
+  font-size: 5em;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 </style>

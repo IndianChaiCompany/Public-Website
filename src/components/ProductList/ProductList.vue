@@ -41,6 +41,7 @@ export default class ProductList extends Vue {
         this.ProductList.push(product.data() as IProduct);
       });
       this.setSelectedItemIndex(0);
+      this.$store.commit("allProductsUpdated", this.ProductList);
     });
   }
 

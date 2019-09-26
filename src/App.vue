@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar class="navbar" />
     <router-view />
   </div>
 </template>
@@ -15,6 +15,11 @@
 }
 body {
   margin: 0;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 500;
 }
 </style>
 
