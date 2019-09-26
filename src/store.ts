@@ -9,7 +9,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {} as firebase.User,
-    allProducts: [] as IProduct[]
+    allProducts: [] as IProduct[],
+    product: {} as IProduct
   },
   mutations: {
     userUpdated: function(state, newUser) {
