@@ -1,13 +1,16 @@
 <template>
   <div id="app">
     <Navbar class="navbar" />
-    <router-view />
+    <div>
+      <router-view />
+    </div>
   </div>
 </template>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap");
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans Narrow", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -15,11 +18,6 @@
 }
 body {
   margin: 0;
-}
-.navbar {
-  position: fixed;
-  width: 100%;
-  z-index: 500;
 }
 </style>
 

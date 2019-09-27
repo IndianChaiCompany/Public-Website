@@ -30,53 +30,82 @@ export default class ProductTiles extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.items {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  .tile {
-    position: relative;
+.productTiles {
+  .items {
     display: grid;
-    align-items: center;
-    justify-content: center;
-    .image {
-      opacity: 1;
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      transition: 0.5s ease;
-      backface-visibility: hidden;
-    }
-    .content {
-      transition: 0.5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 2;
-    }
+    grid-template-columns: 1fr 1fr 1fr;
+    .tile {
+      position: relative;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        transition: 0.5s ease;
+        backface-visibility: hidden;
+        border-radius: 50%;
+      }
+      .content {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+      }
 
-    &:hover .image {
-      opacity: 0.3;
-    }
+      // &:hover .image {
+      //   opacity: 0.3;
+      // }
 
-    &:hover .content {
-      opacity: 1;
-    }
+      // &:hover .content {
+      //   opacity: 1;
+      // }
 
-    .text {
-      background-color: #4caf50;
-      color: white;
-      font-size: 16px;
-      padding: 16px 32px;
-    }
-    .button {
-      color: white;
-      background: black;
-      padding: 20px;
+      .text {
+        background-color: #888888;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+      }
+      .button {
+        color: white;
+        background: black;
+        padding: 20px;
+        border: 2px solid black;
+        transition-duration: 0.4s;
+
+        &:hover {
+          color: black;
+          background: white;
+        }
+      }
+
+      &:nth-child(1) {
+        background-color: rgb(227, 244, 255);
+      }
+      &:nth-child(2) {
+        background-color: rgb(232, 236, 252);
+      }
+      &:nth-child(3) {
+        background-color: rgb(233, 254, 255);
+      }
+      &:nth-child(4) {
+        background-color: rgb(205, 225, 228);
+      }
+      &:nth-child(5) {
+        background-color: rgb(232, 221, 255);
+        grid-row: 2;
+        grid-column: 2 / span 2;
+      }
     }
   }
 }

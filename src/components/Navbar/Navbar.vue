@@ -36,14 +36,15 @@ export default class Navbar extends Vue {}
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap");
-
 .navbar {
+  position: fixed;
+  z-index: 500;
+  width: 100%;
   font-family: "PT Sans Narrow", Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: rgb(248, 248, 248);
   .branding {
     font-size: 1.3rem;
     padding-left: 10px;
