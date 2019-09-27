@@ -1,10 +1,10 @@
 <template>
-  <div class="navbar flex">
-    <div class="branding flex">
+  <div class="navbar flex big">
+    <div class="branding navItem flex">
       <span>INDIAN</span>
       <div>CHAI COMPANY</div>
     </div>
-    <ul class="navLinks flex">
+    <ul class="navLinks navItem flex">
       <li>HOME</li>
       <li>STORE</li>
       <li>BLOGS</li>
@@ -32,24 +32,60 @@ import Login from "@/components/Login/Login.vue";
     Login
   }
 })
-export default class Navbar extends Vue {}
+export default class Navbar extends Vue {
+  mounted() {
+    document.addEventListener("scroll", () => {
+      const scrollPosition = document.documentElement!.scrollTop;
+
+      if (scrollPosition > 50) {
+        document.querySelector(".navbar")!.classList.remove("big");
+      } else {
+        document.querySelector(".navbar")!.classList.add("big");
+      }
+    });
+  }
+}
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap");
-
+.big {
+  background: #fdf8f3 !important;
+  padding: 30px !important;
+  padding-bottom: 0 !important;
+  .branding {
+    font-size: 2em !important;
+  }
+  .navLinks {
+    font-size: 1.5em !important;
+    .counter {
+      transform: translateY(3px);
+    }
+    img {
+      height: 22px !important;
+      transform: translateY(3px);
+    }
+  }
+}
 .navbar {
+  position: fixed;
+  padding: 0 30px;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
   font-family: "PT Sans Narrow", Arial, Helvetica, sans-serif;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background: white;
+  background: rgb(248, 248, 248);
+  transition: 0.5s;
+
   .branding {
     font-size: 1.3rem;
     padding-left: 10px;
-  }
-  span {
-    font-weight: bold;
+    span {
+      font-weight: bold;
+    }
   }
   .navLinks {
     list-style-type: none;

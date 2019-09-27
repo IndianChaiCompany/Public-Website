@@ -9,7 +9,7 @@
       />
     </div>
     <div class="details">
-      <p>{{ data.name }}</p>
+      <p class="name">{{ data.name }}</p>
       <p>{{ data.summary }}</p>
       <div class="callToAction">Get Now</div>
     </div>
@@ -45,7 +45,11 @@ export default class Product extends Vue {
 
   .details {
     padding: 0 20px;
+    .name {
+      font-weight: bold;
+    }
     .callToAction {
+      margin: 0 60px;
       padding: 20px;
       border: black 3px solid;
       color: white;
