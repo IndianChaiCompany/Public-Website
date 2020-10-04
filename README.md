@@ -1,4 +1,4 @@
-# public-website
+# public-website - An Amazing Project
 
 ## Project setup
 ```
